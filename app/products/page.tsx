@@ -3,9 +3,16 @@ import "../globals.css";
 import Link from "next/link";
 import { useState } from "react";
 
+interface Product {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+}
+
 export default function RootLayout() {
-  const [cart, setCart] = useState([]);
-  const products = [
+  const [cart, setCart] = useState<Product[]>([]);
+  const products: Product[] = [
     {
       id: "1",
       name: "옷1번",
@@ -26,7 +33,7 @@ export default function RootLayout() {
     },
   ];
 
-  const addCart = (product) => {
+  const addCart = (product: Product) => {
     setCart([...cart, product]);
   };
 
