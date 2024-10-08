@@ -1,7 +1,10 @@
+"use client";
 import "../globals.css";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function RootLayout() {
+  const [cart, setCart] = useState([]);
   const products = [
     {
       id: "1",
@@ -22,6 +25,10 @@ export default function RootLayout() {
       image: "https://via.placeholder.com/400x300",
     },
   ];
+
+  const addCart = (product) => {
+    setCart([...cart, product]);
+  };
 
   return (
     <html>
@@ -66,11 +73,13 @@ export default function RootLayout() {
                       {product.name}
                     </h2>
                     <p className="text-gray-600">{product.price}</p>
-                    <Link href={`/products/${product.id}`}>
-                      <button className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-900 text-white rounded transition">
-                        상세보기
-                      </button>
-                    </Link>
+
+                    <button
+                      onClick={() => addCart(product)}
+                      className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-900 text-white rounded transition"
+                    >
+                      장바구니
+                    </button>
                   </div>
                 </div>
               ))}

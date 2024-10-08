@@ -55,7 +55,7 @@ export default function ProductDetail() {
                 <p className="text-2xl font-semibold text-blue-600 mt-6">
                   {product.price}
                 </p>
-                <button className="bg-blue-600 text-white rounded hover:bg-blue-900 transition">
+                <button className="mt-6 px-6 py-3 bg-blue-600 text-white rounded hover:bg-blue-900 transition">
                   장바구니 이동
                 </button>
               </div>
